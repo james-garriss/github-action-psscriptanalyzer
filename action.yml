@@ -1,5 +1,5 @@
 name: PSScriptAnalyzer checks
-author: Brandon Olin
+author: James Garriss
 description: GitHub Action to run PSScriptAnalyzer static code analysis checks on Pull Requests
 inputs:
   rootPath:

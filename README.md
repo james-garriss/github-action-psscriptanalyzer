@@ -1,6 +1,8 @@
 # Github Action PSSscriptAnalyzer
 
-This repo was forked from [this outdated repo](https://github.com/devblackops/github-action-psscriptanalyzer).  It creates a [GitHub action](https://github.com/features/actions) to run [PSScriptAnalyzer](https://github.com/PowerShell/PSScriptAnalyzer) static code analysis checks on PowerShell for [Pull Requests](https://help.github.com/articles/about-pull-requests/).
+This repo creates a [GitHub action](https://github.com/features/actions) to run [PSScriptAnalyzer](https://github.com/PowerShell/PSScriptAnalyzer) static code analysis checks on PowerShell for [Pull Requests](https://help.github.com/articles/about-pull-requests/).
+
+It was forked from [this outdated repo](https://github.com/devblackops/github-action-psscriptanalyzer).  I have simply updated the software versions and cleaned up the output a bit.  
 
 ## Success Criteria
 
