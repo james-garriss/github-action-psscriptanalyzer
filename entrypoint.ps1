@@ -23,7 +23,7 @@ if ($env:INPUT_SETTINGSPATH) {
 }
 
 # Run PSScriptAnalyzer
-$issues   = Invoke-ScriptAnalyzer -Recurse @analyzeParams
+$issues   = Invoke-ScriptAnalyzer -Recurse -ReportSummary @analyzeParams
 $errors   = $issues.Where({$_.Severity -eq 'Error'})
 $warnings = $issues.Where({$_.Severity -eq 'Warning'})
 $infos    = $issues.Where({$_.Severity -eq 'Information'})
