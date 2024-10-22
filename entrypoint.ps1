@@ -29,9 +29,8 @@ $warnings = $issues.Where({$_.Severity -eq 'Warning'})
 $infos    = $issues.Where({$_.Severity -eq 'Information'})
 
 # Create comment string
-$comment  = '**PSScriptAnalyzer results:**'
-# Why is there XML?
-$comment += '{0}<details><summary>Errors: [{1}], Warnings: [{2}], Information: [{3}]</summary><p>{4}{5}```' -f $nl, $errors.Count, $warnings.Count, $infos.Count, $nl, $nl
+$comment  = 'PSScriptAnalyzer Results:'
+$comment += '{0}Errors: [{1}], Warnings: [{2}], Information: [{3}]{4}{5}```' -f $nl, $errors.Count, $warnings.Count, $infos.Count, $nl, $nl
 if ($errors.Count -gt 0) {
     $comment += $nl + ($errors | Format-List -Property RuleName, Severity, ScriptName, Line, Message | Out-String -Width 80).Trim()
 }
@@ -41,8 +40,7 @@ if ($warnings.Count -gt 0) {
 if ($infos.Count -gt 0) {
     $comment += $nl + $nl + ($infos | Format-List -Property RuleName, Severity, ScriptName, Line, Message | Out-String -Width 80).Trim()
 }
-# Why is there XML?
-$comment += '{0}{1}```{2}</p></details>' -f $nl, $nl, $nl
+$comment += '{0}{1}```{2}' -f $nl, $nl, $nl
 Write-Output $comment
 
 # Get comment URL
