@@ -1,7 +1,7 @@
-FROM mcr.microsoft.com/powershell:7.1.5-ubuntu-20.04 as base
+FROM mcr.microsoft.com/powershell:lts-ubuntu-22.04 as base
 SHELL ["pwsh", "-Command", "$ErrorActionPreference = 'Stop'; $ProgressPreference = 'SilentlyContinue';"]
 RUN Set-PSRepository -Name PSGallery -InstallationPolicy Trusted; \
-    Install-Module PSScriptAnalyzer -RequiredVersion 1.20.0 -Scope AllUsers -Repository PSGallery
+    Install-Module PSScriptAnalyzer -RequiredVersion 1.23.0 -Scope AllUsers -Repository PSGallery
 
 FROM base as analyzer
 LABEL "com.github.actions.name"         = "PSScriptAnalyzer"
@@ -10,10 +10,10 @@ LABEL "com.github.actions.icon"="check-square"
 LABEL "com.github.actions.color"="green"
 
 LABEL "name"       = "github-action-psscriptanalyzer"
-LABEL "version"    = "2.4.0"
-LABEL "repository" = "https://github.com/devblackops/github-action-psscriptanalyzer"
+LABEL "version"    = "0.0.1"
+LABEL "repository" = "https://github.com/james-garriss/github-action-psscriptanalyzer"
 LABEL "homepage"   = "https://github.com/PowerShell/PSScriptAnalyzer"
-LABEL "maintainer" = "Brandon Olin <brandon@devblackops.io>"
+LABEL "maintainer" = "James Garriss <jgarriss@mitre.org>"
 
 ADD entrypoint.ps1  /entrypoint.ps1
 
