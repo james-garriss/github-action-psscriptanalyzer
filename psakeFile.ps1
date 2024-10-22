@@ -4,10 +4,10 @@ param()
 task default -depends Build
 
 task Init {
-    $script:dockerAcct = 'devblackops'
+    $script:dockerAcct = 'jamesgarriss'
     $script:imageName  = $env:BHProjectName
     $script:dockerRepo = "$dockerAcct/$imageName"
-    $script:version    = '2.4.0'
+    $script:version    = '0.0.1'
 }
 
 task Build -depends Init {
